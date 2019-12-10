@@ -20,4 +20,7 @@ public interface ProductService {
     Product findById(int id);
 
     List<Product> findAll();
+
+    public List<Product> findListByPage();
+
 }

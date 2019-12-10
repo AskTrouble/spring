@@ -1,8 +1,11 @@
 package com.mu.demo.service.impl;
 
-import com.mu.demo.dao.ProductDao;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.mu.demo.dao.spring.ProductDao;
 import com.mu.demo.model.Product;
 import com.mu.demo.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,7 @@ import java.util.List;
  * Copyright © 2019 BZN Corporation, All Rights Reserved.
  */
 @Service
+@Slf4j
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
@@ -31,5 +35,15 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAll() {
         return productDao.findAll();
+    }
+
+    @Override
+    public List<Product> findListByPage() {
+        Page<?> page =PageHelper.startPage(2,2);
+        List<Product> list = productDao.findAll();
+        Long pageTotal = page.getTotal();
+
+        log.info("数据：{}，总页数：{}", list, pageTotal);
+        return list;
     }
 }

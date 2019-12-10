@@ -1,6 +1,6 @@
 package com.mu.demo.service.impl;
 
-import com.mu.demo.dao.UserDao;
+import com.mu.demo.dao.spring.UserDao;
 import com.mu.demo.model.User;
 import com.mu.demo.service.UserService;
 import com.mu.demo.vo.CodeMsg;

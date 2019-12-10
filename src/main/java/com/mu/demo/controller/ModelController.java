@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/model")
 @EnableAutoConfiguration
@@ -27,5 +29,10 @@ public class ModelController {
     @GetMapping("/getProudctById")
     public Product findProudctById(@RequestParam(value = "id") int id){
         return productService.findById(id);
+    }
+
+    @GetMapping("/findListByPage")
+    public List<Product> findProudctById(){
+        return productService.findListByPage();
     }
 }

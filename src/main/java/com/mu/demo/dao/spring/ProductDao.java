@@ -1,7 +1,8 @@
-package com.mu.demo.dao;
+package com.mu.demo.dao.spring;
 
 import com.mu.demo.model.Product;
-import org.apache.ibatis.annotations.Mapper;
+import com.mu.demo.model.User;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
